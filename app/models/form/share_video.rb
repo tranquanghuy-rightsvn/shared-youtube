@@ -15,7 +15,7 @@ module Form
       Video.create! embed_url: video.embed_url, description: video.description, title: video.title, user_id: user_id, url: url
 
       true
-    rescue VideoInfo::UrlError, ActiveRecord::ActiveRecordError => e
+    rescue ActiveRecord::ActiveRecordError, VideoInfo::UrlError => e
       errors.add(:base, e.message)
 
       false

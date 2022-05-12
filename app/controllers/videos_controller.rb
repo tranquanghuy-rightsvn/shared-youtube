@@ -1,6 +1,6 @@
 class VideosController < ApplicationController
   before_action :check_current_user, only: [:new, :create]
-  
+
   def new
     @video = Form::ShareVideo.new
   end
@@ -18,8 +18,7 @@ class VideosController < ApplicationController
   private
 
   def video_params
-    # params.require(:form_share_video).permit(:url).merge user_id: current_user.id
-    params.fetch(:form_share_video, {}).permit(:url).merge user_id: current_user.id
+    params.require(:form_share_video).permit(:url).merge user_id: current_user.id
   end
 
   def check_current_user

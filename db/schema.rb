@@ -25,6 +25,9 @@ ActiveRecord::Schema.define(version: 2022_05_12_073738) do
   create_table "videos", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "url", null: false
+    t.string "embed_url", null: false
+    t.string "title", null: false
+    t.text "description", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_videos_on_user_id"

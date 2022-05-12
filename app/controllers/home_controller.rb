@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
     @user = User.new
-    @videos = Video.newest.page(params[:page]).per 3
+    @videos = Video.includes(:user).newest.page(params[:page]).per 5
   end
 end

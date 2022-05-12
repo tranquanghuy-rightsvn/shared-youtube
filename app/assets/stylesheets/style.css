@@ -10,6 +10,11 @@
 h1 {
   line-height: 60px;
   font-size: 35px;
+  color: #000;
+}
+
+a {
+  text-decoration: none !important;
 }
 
 hr {
@@ -39,6 +44,14 @@ hr {
 
 .unvoted {
   color: black;
+}
+
+.display-none {
+  display: none;
+}
+
+#error_explanation ul li {
+  color: red;
 }
 
 /* Reponsive */

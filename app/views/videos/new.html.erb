@@ -1,0 +1,24 @@
+<div class="card">
+  <h4>Share A Youtube Movie </h4>
+  <%= render "shared/error_messages", resource: @video %>
+
+  <%= form_for(@video, url: videos_url) do |f| %>
+    <%= f.text_field :url, placeholder: "Enter Your Link", class: "form-control" %>
+    <%= f.submit "Share", class: "btn btn-dark button-share" %>
+  <% end %>
+</div>
+
+<style type="text/css">
+  .card {
+    padding: 20px;
+    max-width: 400px;
+    margin: auto;
+  }
+
+  .button-share {
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    width: 360px;
+  }
+</style>

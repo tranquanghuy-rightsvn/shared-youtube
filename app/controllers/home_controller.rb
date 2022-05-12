@@ -1,9 +1,6 @@
 class HomeController < ApplicationController
   def index
     @user = User.new
-    @video = VideoInfo.new('https://www.youtube.com/watch?v=mr0gyhwXM4w')
-
-
-    @title = @video.title
+    @videos = Video.newest.page(params[:page]).per 3
   end
 end

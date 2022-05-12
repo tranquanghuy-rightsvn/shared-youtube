@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2022_05_12_073738) do
     t.string "url", null: false
     t.string "embed_url", null: false
     t.string "title", null: false
-    t.text "description", null: false
+    t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_videos_on_user_id"

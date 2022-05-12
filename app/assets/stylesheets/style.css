@@ -29,6 +29,20 @@ hr {
   float: right;
 }
 
+.title{
+  color: red;
+}
+
+.voted {
+  color: blue;
+}
+
+.unvoted {
+  color: black;
+}
+
+/* Reponsive */
+
 @media screen and (max-width: 1200px) {
   .right-nav {
     justify-content: flex-start;

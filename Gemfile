@@ -12,6 +12,7 @@ gem "turbolinks", "~> 5"
 gem "jbuilder", "~> 2.7"
 gem "devise"
 gem "video_info"
+gem "bootstrap4-kaminari-views"
 gem "figaro"
 gem "kaminari"
 gem "bootsnap", ">= 1.4.4", require: false

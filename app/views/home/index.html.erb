@@ -1,5 +1,30 @@
-<iframe src="<%= @video.embed_url %>"
-   width="560" height="315" frameborder="0" allowfullscreen></iframe>
-<div class="container">
-title: <%= @title %>
-</div>
+<%= paginate @videos, theme: "twitter-bootstrap-4",
+                   pagination_class: "pagination-sm",
+                   nav_class: "d-inline-b"
+                   %>
+
+<% @videos.map do |video| %>
+  <div class="row">
+    <div class="col-lg-12 col-xl-6">
+      <iframe src="<%= video.embed_url %>"
+         width="560" height="315" frameborder="0" allowfullscreen>
+      </iframe>
+    </div>
+
+    <div class="col-lg-12 col-xl-6">
+      <h4 class="title"><%= video.title %></h4>
+      <p> Shared by <%= video.user.email %> </p>
+      <p> Description: <%= video.description %> </p>
+      <p> 
+        10 <span class="fa fa-thumbs-up voted"></span>
+        &nbsp;
+        12 <span class="fa fa-thumbs-down unvoted"></span>
+      </p>
+    </div>
+  </div>
+<% end %>
+
+<%= paginate @videos, theme: "twitter-bootstrap-4",
+                   pagination_class: "pagination-sm",
+                   nav_class: "d-inline-b"
+                   %>

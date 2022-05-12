@@ -1,0 +1,39 @@
+.logo {
+  display: flex;
+}
+
+.lh-40 {
+  line-height: 60px;
+  padding-top: 22px;
+}
+
+h1 {
+  line-height: 60px;
+  font-size: 35px;
+}
+
+hr {
+  margin: 20px 0;
+}
+
+.right-nav {
+  justify-content: flex-end;
+  display: flex;
+  height: 60p;
+  padding: 10px 0 20px;
+  align-items: center;
+}
+
+#error-message-session {
+  color: red;
+  float: right;
+}
+
+@media screen and (max-width: 1200px) {
+  .right-nav {
+    justify-content: flex-start;
+  }
+  #error-message-session {
+    float: left;
+  }
+}

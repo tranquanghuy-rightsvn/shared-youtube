@@ -1,0 +1,1 @@
+<%= link_to "<span class='fa fa-thumbs-up #{ video.like_voted_by?(current_user.id) if current_user }'></span>".html_safe, reaction_video_path(video, emotion_type: 0), method: :post, remote: true %>

@@ -3,4 +3,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :validatable
 
   has_many :videos
+  has_many :emotions
+
+  validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }
+  validates :password, presence: true, length: { minimum: 6 }
 end

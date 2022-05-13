@@ -1,5 +1,5 @@
 class VideosController < ApplicationController
-  before_action :check_current_user, only: [:new, :create]
+  before_action :check_current_user
 
   def new
     @video = Form::ShareVideo.new
@@ -15,6 +15,25 @@ class VideosController < ApplicationController
     end
   end
 
+  def reaction
+    emotion = Emotion.find_by video_id: params[:id], user: current_user
+    emotion_type = params[:emotion_type].to_i
+
+    if emotion
+      return destroy_emotion(emotion) if emotion.read_attribute_before_type_cast(:emotion_type) == emotion_type
+
+      switch_emotion emotion
+    else
+      Emotion.create! video_id: params[:id], user: current_user, emotion_type: emotion_type
+    end
+
+    @video = Video.with_count_like.find_by id: params[:id]
+
+    respond_to do |format|
+      format.js
+    end
+  end
+
   private
 
   def video_params
@@ -23,5 +42,13 @@ class VideosController < ApplicationController
 
   def check_current_user
     redirect_to root_path unless current_user
+  end
+
+  def switch_emotion emotion
+    emotion.like? ? emotion.dislike! : emotion.like!
+  end
+
+  def destroy_emotion emotion
+    emotion.destroy!
   end
 end

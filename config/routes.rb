@@ -5,5 +5,9 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
   }
 
-  resources :videos, only: [:new, :create]
+  resources :videos, only: [:new, :create] do 
+    member do
+      post :reaction
+    end
+  end
 end

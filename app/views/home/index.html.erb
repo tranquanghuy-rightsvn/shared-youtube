@@ -16,9 +16,17 @@
       <p> Shared by <%= video.user.email %> </p>
       <p> Description: <%= video.description %> </p>
       <p> 
-        10 <span class="fa fa-thumbs-up voted"></span>
+        <span class="count-like-<%= video.id %>"><%= video.count_like %></span>
+
+        <span class="like-<%= video.id %>">
+          <%= render "shared/emotions/like", video: video %>
+        </span>
+
         &nbsp;
-        12 <span class="fa fa-thumbs-down unvoted"></span>
+        <span class="count-dislike-<%= video.id %>"><%= video.count_dislike %></span>
+        <span class="dislike-<%= video.id %>">
+          <%= render "shared/emotions/dislike", video: video %>
+        </span>
       </p>
     </div>
   </div>

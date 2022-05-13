@@ -1,0 +1,4 @@
+$('.count-like-<%= @video.id %>').html('<%= @video.count_like %>');
+$('.count-dislike-<%= @video.id %>').html('<%= @video.count_dislike %>');
+$('.like-<%= @video.id %>').html('<%= j render("shared/emotions/like", video: @video) %>');
+$('.dislike-<%= @video.id %>').html('<%= j render("shared/emotions/dislike", video: @video) %>');

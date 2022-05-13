@@ -38,6 +38,19 @@ hr {
   color: red;
 }
 
+.display-none {
+  display: none;
+}
+
+#error_explanation ul li {
+  color: red;
+}
+
+.fa-thumbs-up, .fa-thumbs-down {
+  margin-left: 2px;
+  color: black;
+}
+
 .voted {
   color: blue;
 }
@@ -46,12 +59,17 @@ hr {
   color: black;
 }
 
-.display-none {
-  display: none;
+.card {
+  padding: 20px;
+  max-width: 400px;
+  margin: auto;
 }
 
-#error_explanation ul li {
-  color: red;
+.button-share {
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  width: 360px;
 }
 
 /* Reponsive */

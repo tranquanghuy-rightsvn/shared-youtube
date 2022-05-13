@@ -17,14 +17,14 @@ class Video < ActiveRecord::Base
     emotions.count - count_like
   end
 
-  def like_voted_by? current_user_id
-    emotion = emotions.find { |emo| emo.user_id == current_user_id && emo.emotion_type == "like"}
+  def like_voted_by? user_id
+    emotion = emotions.find { |emo| emo.user_id == user_id && emo.emotion_type == "like"}
 
     emotion.present? ? "voted" : ""
   end
 
-  def dislike_voted_by? current_user_id
-    emotion = emotions.find { |emo| emo.user_id == current_user_id && emo.emotion_type == "dislike"} 
+  def dislike_voted_by? user_id
+    emotion = emotions.find { |emo| emo.user_id == user_id && emo.emotion_type == "dislike"} 
 
     emotion.present? ? "voted" : ""
   end

@@ -1,5 +1,5 @@
 class VideosController < ApplicationController
-  before_action :check_current_user
+  before_action :authenticate_user!
 
   def new
     @video = Form::ShareVideo.new
@@ -20,9 +20,11 @@ class VideosController < ApplicationController
     emotion_type = params[:emotion_type].to_i
 
     if emotion
-      return destroy_emotion(emotion) if emotion.read_attribute_before_type_cast(:emotion_type) == emotion_type
-
-      switch_emotion emotion
+      if emotion.read_attribute_before_type_cast(:emotion_type) == emotion_type
+        destroy_emotion(emotion)
+      else
+        switch_emotion emotion
+      end
     else
       Emotion.create! video_id: params[:id], user: current_user, emotion_type: emotion_type
     end

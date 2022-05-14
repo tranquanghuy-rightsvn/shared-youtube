@@ -10,4 +10,6 @@ Rails.application.routes.draw do
       post :reaction
     end
   end
+
+  match '*path', :to => 'application#redirect_to_root_path', via: [:get, :post]
 end
